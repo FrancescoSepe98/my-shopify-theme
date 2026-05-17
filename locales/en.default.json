@@ -181,6 +181,24 @@
       "duties_and_taxes_included": "Duties and taxes included.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
     },
+    "pet": {
+      "size_selector": {
+        "label": "Select size",
+        "choose": "Choose a size",
+        "weight_placeholder": "Enter your pet's weight",
+        "size_guide_link": "Size guide",
+        "recommended": "Recommended: {{ size }}",
+        "out_of_range": "Out of range — please contact us for advice."
+      },
+      "size_guide": {
+        "title": "Size guide",
+        "default_intro": "Use a soft tape measure to find the right size:",
+        "step_1": "Stand your pet in a natural position.",
+        "step_2": "Measure neck, chest girth and back length in centimetres.",
+        "step_3": "Match the largest measurement to the size chart above.",
+        "disclaimer": "Sizes are indicative. When in doubt, go one size up."
+      }
+    },
     "modal": {
       "label": "Media gallery"
     },

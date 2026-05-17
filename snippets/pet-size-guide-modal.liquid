@@ -1,0 +1,64 @@
+{% comment %}
+  PET: Size guide modal.
+
+  Built on Dawn's <modal-dialog> + <modal-opener> primitives so we inherit:
+    - focus trap
+    - ESC to close
+    - click-outside to close
+    - body scroll lock
+    - automatic move to document.body (via connectedCallback)
+
+  Reuses Dawn's `.product-popup-modal` styles for the overlay and shell so
+  the visual treatment matches existing product page modals. Only the inner
+  content layout (table, list, disclaimer) gets pet-specific styling.
+
+  Content source order:
+    1. product.metafields.custom.pet_size_guide  (rich_text)  if present
+    2. Locale-driven generic "how to measure" fallback
+
+  Accepts:
+    - block    (required, used for unique id)
+    - product  (required)
+{% endcomment %}
+
+<modal-dialog
+  id="PetSizeGuideModal-{{ block.id }}"
+  class="product-popup-modal pet-size-guide-modal"
+>
+  <div
+    role="dialog"
+    aria-label="{{ 'products.pet.size_guide.title' | t }}"
+    aria-modal="true"
+    class="product-popup-modal__content"
+    tabindex="-1"
+  >
+    <button
+      id="ModalClose-{{ block.id }}"
+      type="button"
+      class="product-popup-modal__toggle"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </button>
+    <div class="product-popup-modal__content-info pet-size-guide-modal__body">
+      <h2 class="pet-size-guide-modal__title h2">
+        {{- 'products.pet.size_guide.title' | t -}}
+      </h2>
+      <div class="pet-size-guide-modal__rte rte">
+        {%- if product.metafields.custom.pet_size_guide != blank -%}
+          {{ product.metafields.custom.pet_size_guide }}
+        {%- else -%}
+          <p>{{ 'products.pet.size_guide.default_intro' | t }}</p>
+          <ol>
+            <li>{{ 'products.pet.size_guide.step_1' | t }}</li>
+            <li>{{ 'products.pet.size_guide.step_2' | t }}</li>
+            <li>{{ 'products.pet.size_guide.step_3' | t }}</li>
+          </ol>
+          <p class="pet-size-guide-modal__disclaimer">
+            {{- 'products.pet.size_guide.disclaimer' | t -}}
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</modal-dialog>

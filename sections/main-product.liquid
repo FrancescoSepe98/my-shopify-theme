@@ -691,6 +691,13 @@
                 </div>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'pet_size_selector' -%}
+                {%- comment -%} PET: animal size/weight selector + size guide modal {%- endcomment -%}
+                {% render 'pet-size-selector',
+                  block: block,
+                  product: product,
+                  product_form_id: product_form_id
+                %}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -2140,6 +2147,58 @@
           "id": "text",
           "default": "Shipped from Italy. Free EU delivery over 60 EUR.",
           "label": "Subtext"
+        }
+      ]
+    },
+    {
+      "type": "pet_size_selector",
+      "name": "Pet — Size / weight selector",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Renders only if the product has the metafield `custom.pet_size_options` (list.single_line_text). Format each entry as `Label|range`, e.g. `XS|0-3`, `S|3-7`, `M|7-15`, `L|15-30`, `XL|30+`. The range unit follows the Weight unit setting below. This selector does NOT replace Shopify variants — it writes a line item property on the order."
+        },
+        {
+          "type": "select",
+          "id": "mode",
+          "label": "Selector mode",
+          "options": [
+            { "value": "dropdown", "label": "Size dropdown" },
+            { "value": "weight_range", "label": "Weight input (recommends a size)" }
+          ],
+          "default": "dropdown"
+        },
+        {
+          "type": "select",
+          "id": "weight_unit",
+          "label": "Weight unit",
+          "options": [
+            { "value": "kg", "label": "kg" },
+            { "value": "lb", "label": "lb" }
+          ],
+          "default": "kg"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Field label",
+          "info": "Leave blank to use the default translation.",
+          "default": "Select size"
+        },
+        {
+          "type": "text",
+          "id": "property_name",
+          "label": "Line item property name",
+          "info": "Visible in the admin order. Default: Recommended size.",
+          "default": "Recommended size"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_size_guide",
+          "label": "Show “Size guide” link + modal",
+          "default": true,
+          "info": "Modal content comes from `custom.pet_size_guide` (rich_text). Falls back to a generic how-to-measure note."
         }
       ]
     }
