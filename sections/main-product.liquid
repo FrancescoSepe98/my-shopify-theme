@@ -1,3 +1,4 @@
+{{ 'component-shipping-promise.css' | asset_url | stylesheet_tag }}
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -672,6 +673,22 @@
                     <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
                   {%- endif -%}
                 </product-recommendations>
+              {%- when 'shipping_promise' -%}
+                <div class="product__shipping-promise" {{ block.shopify_attributes }}>
+                  {%- if block.settings.icon != 'none' -%}
+                    <span class="product__shipping-promise-icon" aria-hidden="true">
+                      {%- render 'icon-accordion', icon: block.settings.icon -%}
+                    </span>
+                  {%- endif -%}
+                  <span class="product__shipping-promise-content">
+                    {%- if block.settings.heading != blank -%}
+                      <strong class="product__shipping-promise-heading">{{ block.settings.heading | escape }}</strong>
+                    {%- endif -%}
+                    {%- if block.settings.text != blank -%}
+                      <span class="product__shipping-promise-text">{{ block.settings.text | escape }}</span>
+                    {%- endif -%}
+                  </span>
+                </div>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
@@ -2084,6 +2101,45 @@
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+        }
+      ]
+    },
+    {
+      "type": "shipping_promise",
+      "name": "Shipping promise",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" },
+            { "value": "padlock", "label": "Padlock" },
+            { "value": "lock", "label": "Lock" },
+            { "value": "chat_bubble", "label": "Chat" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "star", "label": "Star" },
+            { "value": "check_mark", "label": "Check mark" },
+            { "value": "gift_card", "label": "Gift" },
+            { "value": "box", "label": "Box" }
+          ],
+          "default": "truck",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Ships in 1-3 days",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Shipped from Italy. Free EU delivery over 60 EUR.",
+          "label": "Subtext"
         }
       ]
     }
