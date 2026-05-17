@@ -6,16 +6,23 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
+            "heading": "Considered objects for a thoughtful home.",
             "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Pieces designed to be lived with. Calm materials, honest details.",
+            "text_style": "subtitle"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Shop the collection",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -24,16 +31,17 @@
       },
       "block_order": [
         "heading",
+        "text",
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 20,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "bottom-left",
         "show_text_box": false,
         "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -42,8 +50,8 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
+        "title": "New & noteworthy",
+        "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -53,23 +61,114 @@
         "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Beautifully crafted and exactly what our living room was missing. Warm without being loud, a calm and considered piece.</p>",
+            "author": "Eleanor M.",
+            "role": "Berlin, Germany",
+            "rating": 5
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>The packaging alone felt thoughtful. The product looks even better at home than on the website. Easy recommendation.</p>",
+            "author": "Lucas R.",
+            "role": "Lyon, France",
+            "rating": 5
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>Quiet, elegant, well made. The kind of pieces that do not shout but quietly improve a room.</p>",
+            "author": "Sofia B.",
+            "role": "Milan, Italy",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3"],
+      "settings": {
+        "subheading": "Reviews",
+        "heading": "Words from our community",
+        "heading_size": "h1",
+        "columns_desktop": 3,
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "trust_band": {
+      "type": "trust-band",
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Free EU shipping",
+            "text": "On all orders over 60 EUR"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "heading": "30-day returns",
+            "text": "Easy, no-questions exchanges"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "icon": "padlock",
+            "heading": "Secure payment",
+            "text": "SSL and 3D Secure checkout"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "icon": "chat_bubble",
+            "heading": "Friendly support",
+            "text": "Mon to Fri, real humans"
+          }
+        }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"],
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "testimonials",
+    "trust_band"
   ]
 }

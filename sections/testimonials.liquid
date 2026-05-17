@@ -1,0 +1,194 @@
+{{ 'section-testimonials.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div
+    class="testimonials page-width section-{{ section.id }}-padding isolate{% if section.settings.full_width %} testimonials--full-width{% endif %}"
+  >
+    {%- if section.settings.subheading != blank or section.settings.heading != blank -%}
+      <div class="testimonials__header">
+        {%- if section.settings.subheading != blank -%}
+          <p class="testimonials__eyebrow caption-with-letter-spacing">
+            {{- section.settings.subheading | escape -}}
+          </p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="testimonials__title inline-richtext {{ section.settings.heading_size }}">
+            {{- section.settings.heading -}}
+          </h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul
+        class="testimonials__grid list-unstyled"
+        role="list"
+        style="--columns-desktop: {{ section.settings.columns_desktop }};"
+      >
+        {%- for block in section.blocks -%}
+          <li class="testimonials__item" {{ block.shopify_attributes }}>
+            <figure class="testimonial">
+              <div class="testimonial__quote-mark" aria-hidden="true">&ldquo;</div>
+              {%- if block.settings.rating > 0 -%}
+                <div
+                  class="testimonial__rating"
+                  role="img"
+                  aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: block.settings.rating, rating_max: 5 | default: block.settings.rating }} / 5"
+                >
+                  {%- for i in (1..5) -%}
+                    {%- if i <= block.settings.rating -%}
+                      <span class="testimonial__star testimonial__star--filled" aria-hidden="true">&#9733;</span>
+                    {%- else -%}
+                      <span class="testimonial__star" aria-hidden="true">&#9734;</span>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+              <blockquote class="testimonial__quote">
+                {{ block.settings.quote }}
+              </blockquote>
+              {%- if block.settings.author != blank or block.settings.role != blank -%}
+                <figcaption class="testimonial__cite">
+                  {%- if block.settings.author != blank -%}
+                    <span class="testimonial__author">{{ block.settings.author | escape }}</span>
+                  {%- endif -%}
+                  {%- if block.settings.role != blank -%}
+                    <span class="testimonial__role">{{ block.settings.role | escape }}</span>
+                  {%- endif -%}
+                </figcaption>
+              {%- endif -%}
+            </figure>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section section-testimonials",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Reviews",
+      "label": "Eyebrow text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Words from our community",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "Columns on desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "Full width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote",
+          "default": "<p>Beautifully crafted and exactly what our living room was missing. The terracotta tones feel warm without being loud — a calm, considered piece.</p>",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "default": "Eleanor M.",
+          "label": "Author name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "default": "Berlin, Germany",
+          "label": "Location or role"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "label": "Star rating",
+          "info": "Set to 0 to hide stars"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
