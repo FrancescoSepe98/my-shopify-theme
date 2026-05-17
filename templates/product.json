@@ -34,6 +34,13 @@
             "text_style": "subtitle"
           }
         },
+        "pet_size_guide_8LCRGB": {
+          "type": "pet_size_guide",
+          "settings": {
+            "link_text": "Size guide",
+            "icon": "info"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -44,13 +51,6 @@
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
-        },
-        "pet_size_guide": {
-          "type": "pet_size_guide",
-          "settings": {
-            "link_text": "",
-            "icon": "ruler"
-          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -122,8 +122,8 @@
         "title",
         "price",
         "benefit",
+        "pet_size_guide_8LCRGB",
         "variant_picker",
-        "pet_size_guide",
         "quantity_selector",
         "buy_buttons",
         "shipping_promise",
