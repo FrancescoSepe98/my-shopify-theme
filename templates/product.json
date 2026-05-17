@@ -45,14 +45,11 @@
           "type": "quantity_selector",
           "settings": {}
         },
-        "pet_size_selector_Nc87hF": {
-          "type": "pet_size_selector",
+        "pet_size_guide": {
+          "type": "pet_size_guide",
           "settings": {
-            "mode": "dropdown",
-            "weight_unit": "kg",
-            "label": "Select size",
-            "property_name": "Recommended size",
-            "show_size_guide": true
+            "link_text": "",
+            "icon": "ruler"
           }
         },
         "buy_buttons": {
@@ -126,8 +123,8 @@
         "price",
         "benefit",
         "variant_picker",
+        "pet_size_guide",
         "quantity_selector",
-        "pet_size_selector_Nc87hF",
         "buy_buttons",
         "shipping_promise",
         "trust_badges",
