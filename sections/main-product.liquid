@@ -2152,12 +2152,12 @@
     },
     {
       "type": "pet_size_selector",
-      "name": "Pet — Size / weight selector",
+      "name": "Pet - Size / weight selector",
       "limit": 1,
       "settings": [
         {
           "type": "paragraph",
-          "content": "Renders only if the product has the metafield `custom.pet_size_options` (list.single_line_text). Format each entry as `Label|range`, e.g. `XS|0-3`, `S|3-7`, `M|7-15`, `L|15-30`, `XL|30+`. The range unit follows the Weight unit setting below. This selector does NOT replace Shopify variants — it writes a line item property on the order."
+          "content": "Renders only if the product has the metafield custom.pet_size_options (list of single-line text). Format each entry as Label|range, e.g. XS|0-3, S|3-7, M|7-15, L|15-30, XL|30+. The range unit follows the Weight unit setting below. This selector does NOT replace Shopify variants - it writes a line item property on the order."
         },
         {
           "type": "select",
@@ -2196,9 +2196,9 @@
         {
           "type": "checkbox",
           "id": "show_size_guide",
-          "label": "Show “Size guide” link + modal",
+          "label": "Show \"Size guide\" link + modal",
           "default": true,
-          "info": "Modal content comes from `custom.pet_size_guide` (rich_text). Falls back to a generic how-to-measure note."
+          "info": "Modal content comes from custom.pet_size_guide (rich text). Falls back to a generic how-to-measure note."
         }
       ]
     }
