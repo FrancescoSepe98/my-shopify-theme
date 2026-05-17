@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -36,6 +45,16 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "pet_size_selector_Nc87hF": {
+          "type": "pet_size_selector",
+          "settings": {
+            "mode": "dropdown",
+            "weight_unit": "kg",
+            "label": "Select size",
+            "property_name": "Recommended size",
+            "show_size_guide": true
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -72,7 +91,8 @@
           "settings": {
             "heading": "Materials and care",
             "icon": "leaf",
-            "content": "<p>Crafted from durable, naturally finished materials. Wipe gently with a soft, dry cloth. Avoid direct sunlight and high humidity to keep colors true.</p>"
+            "content": "<p>Crafted from durable, naturally finished materials. Wipe gently with a soft, dry cloth. Avoid direct sunlight and high humidity to keep colors true.</p>",
+            "page": ""
           }
         },
         "faq_sizing": {
@@ -80,7 +100,8 @@
           "settings": {
             "heading": "Dimensions and details",
             "icon": "clipboard",
-            "content": "<p>Full measurements are listed in the product images. If you need extra detail or a styled photo in your space, write to us at hello@yourstore.com.</p>"
+            "content": "<p>Full measurements are listed in the product images. If you need extra detail or a styled photo in your space, write to us at hello@yourstore.com.</p>",
+            "page": ""
           }
         },
         "faq_delivery": {
@@ -88,7 +109,8 @@
           "settings": {
             "heading": "Delivery and returns",
             "icon": "truck",
-            "content": "<p>Orders ship within 1-3 business days from Italy. Standard EU delivery 2-5 days. Free over 60 EUR. 30-day no-questions returns: simply email us and we'll arrange pickup.</p>"
+            "content": "<p>Orders ship within 1-3 business days from Italy. Standard EU delivery 2-5 days. Free over 60 EUR. 30-day no-questions returns: simply email us and we'll arrange pickup.</p>",
+            "page": ""
           }
         },
         "share": {
@@ -105,6 +127,7 @@
         "benefit",
         "variant_picker",
         "quantity_selector",
+        "pet_size_selector_Nc87hF",
         "buy_buttons",
         "shipping_promise",
         "trust_badges",
