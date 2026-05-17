@@ -192,15 +192,8 @@
       "duties_and_taxes_included": "Dazi e imposte inclusi."
     },
     "pet": {
-      "size_selector": {
-        "label": "Seleziona la taglia",
-        "choose": "Scegli una taglia",
-        "weight_placeholder": "Inserisci il peso del tuo pet",
-        "size_guide_link": "Guida alle taglie",
-        "recommended": "Consigliata: {{ size }}",
-        "out_of_range": "Fuori range — contattaci per un consiglio."
-      },
       "size_guide": {
+        "link": "Guida alle taglie",
         "title": "Guida alle taglie",
         "default_intro": "Usa un metro morbido per trovare la taglia giusta:",
         "step_1": "Metti il tuo pet in piedi, in posizione naturale.",

@@ -1,0 +1,97 @@
+{% comment %}
+  PET: Size-guide trigger link + modal.
+
+  A small button rendered next to the (Dawn) variant picker that opens
+  an accessible modal with sizing information. Designed to live in the
+  product info area as a sibling block of variant_picker.
+
+  Modal content source:
+    1. product.metafields.custom.pet_size_guide  (rich_text)
+    2. Locale fallback (3-step how-to-measure)
+
+  Built on Dawn's <modal-dialog> + <modal-opener> so we inherit focus
+  trap, ESC-to-close, click-outside-to-close, body scroll lock, and the
+  automatic move to document.body.
+
+  Accepts:
+    - block    (required, used for unique modal id and link text setting)
+    - product  (required)
+{% endcomment %}
+
+{{ 'component-pet.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign link_text = block.settings.link_text
+  if link_text == blank
+    assign link_text = 'products.pet.size_guide.link' | t
+  endif
+  assign icon = block.settings.icon | default: 'ruler'
+-%}
+
+<div class="pet-size-guide-trigger" {{ block.shopify_attributes }}>
+  <modal-opener
+    class="pet-size-guide-trigger__opener"
+    data-modal="#PetSizeGuideModal-{{ block.id }}"
+  >
+    <button
+      type="button"
+      class="pet-size-guide-trigger__button"
+      aria-haspopup="dialog"
+    >
+      {%- case icon -%}
+        {%- when 'ruler' -%}
+          {{- 'icon-ruler.svg' | inline_asset_content -}}
+        {%- when 'paw' -%}
+          {{- 'icon-paw-print.svg' | inline_asset_content -}}
+        {%- when 'info' -%}
+          {{- 'icon-info.svg' | inline_asset_content -}}
+        {%- when 'question' -%}
+          {{- 'icon-question-mark.svg' | inline_asset_content -}}
+        {%- when 'none' -%}
+      {%- endcase -%}
+      <span class="pet-size-guide-trigger__label">{{ link_text }}</span>
+    </button>
+  </modal-opener>
+</div>
+
+<modal-dialog
+  id="PetSizeGuideModal-{{ block.id }}"
+  class="product-popup-modal pet-size-guide-modal"
+>
+  <div
+    role="dialog"
+    aria-label="{{ 'products.pet.size_guide.title' | t }}"
+    aria-modal="true"
+    class="product-popup-modal__content"
+    tabindex="-1"
+  >
+    <button
+      id="ModalClose-{{ block.id }}"
+      type="button"
+      class="product-popup-modal__toggle"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </button>
+    <div class="product-popup-modal__content-info pet-size-guide-modal__body">
+      <h2 class="pet-size-guide-modal__title h2">
+        {{- 'products.pet.size_guide.title' | t -}}
+      </h2>
+      <div class="pet-size-guide-modal__rte rte">
+        {%- if product.metafields.custom.pet_size_guide != blank -%}
+          {{ product.metafields.custom.pet_size_guide }}
+        {%- else -%}
+          <p>{{ 'products.pet.size_guide.default_intro' | t }}</p>
+          <ol>
+            <li>{{ 'products.pet.size_guide.step_1' | t }}</li>
+            <li>{{ 'products.pet.size_guide.step_2' | t }}</li>
+            <li>{{ 'products.pet.size_guide.step_3' | t }}</li>
+          </ol>
+          <p class="pet-size-guide-modal__disclaimer">
+            {{- 'products.pet.size_guide.disclaimer' | t -}}
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</modal-dialog>
