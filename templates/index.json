@@ -35,11 +35,14 @@
         "heading",
         "button"
       ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.banner__media {background-color: #dcebe7; } /* azzurro del cielo */ .banner__media img {object-fit: contain !important; object-position: center bottom; }}"
+      ],
       "settings": {
         "image": "shopify://shop_images/banner_joyland_v2.png",
         "image_overlay_opacity": 20,
         "image_height": "adapt",
-        "image_behavior": "ambient",
+        "image_behavior": "none",
         "desktop_content_position": "top-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
