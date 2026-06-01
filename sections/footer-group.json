@@ -59,7 +59,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "",
+        "custom_liquid": "<img src=\"https://cdn.shopify.com/s/files/1/0910/5542/3866/files/footer_joyland.png?v=1780353992\"\n  alt=\"Joyland — accessori per cani e gatti\"\n  loading=\"lazy\"\n  style=\"display:block; width:100%; height:auto; margin:0;\">",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52
